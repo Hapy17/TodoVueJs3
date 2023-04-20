@@ -1,0 +1,24 @@
+div#saveOptions{
+
+    div{
+        margin: auto;
+        margin-bottom: .5rem;
+        width: 400px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+
+    }
+}
+
+@media (max-width : 768px){
+    div#saveOptions{
+
+        div{
+            width: 90%;
+    
+        }
+    }
+}
