@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #12263a;
+  font-family: "Roboto Condensed", sans-serif;
+  color: #e8e9f3;
+}
+body h1 {
+  margin: 1rem;
+  font-size: 3rem;
+  text-align: center;
+}
+body h1 i {
+  color: #ff9000;
+}
+body h2 {
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-align: center;
+}
+body p {
+  font-size: 1.2rem;
+}
+body p.tasksCounter {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+div#app {
+  width: 1024px;
+  margin: auto;
+}
+div#app > div {
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  div#app {
+    width: 100%;
+  }
+  div#app > div {
+    margin-bottom: 1rem;
+  }
+}
+div.inputDiv {
+  margin: auto;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+}
+div.inputDiv input.addTaskInput {
+  flex-grow: 2;
+  height: 1.8rem;
+  border: none;
+  border-radius: 5px;
+  margin-right: 0.5rem;
+  padding-left: 0.5rem;
+  accent-color: #ff9000;
+}
+
+@media (max-width: 768px) {
+  div.inputDiv {
+    width: 90%;
+  }
+  div.inputDiv input.addTaskInput {
+    flex-grow: 2;
+  }
+}
+button {
+  background-color: #ff9000;
+  aspect-ratio: 2/1;
+  height: 1.8rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+button i::before {
+  height: 50px;
+}
+
+div#todosGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 768px) {
+  div#todosGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+div.task {
+  margin: 0rem 0.5rem 0.5rem 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+div.task p {
+  flex-grow: 3;
+  overflow-wrap: break-word;
+}
+div.task div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+div.task button {
+  aspect-ratio: 1/1;
+}
+
+div#donesCol div.task p {
+  opacity: 0.3;
+  text-decoration: line-through;
+}
+
+/*# sourceMappingURL=style.css.map */

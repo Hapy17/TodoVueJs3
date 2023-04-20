@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>To-Do List</title>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <div>
+            <h1>To-Do List <i class="fa-solid fa-check"></i></h1>
+            <p class="tasksCounter" >To-Do's counter : {{counter}} </p>
+        </div>
+
+        <div class="inputDiv">
+            <input type="text" v-model="taskToAdd" placeholder="Ajouter une tâche..." @keydown.enter="addTaskinTodos" class="addTaskInput">
+            <button  @click="addTaskinTodos"><i class="fa-solid fa-plus fa-xl"></i></button>
+        </div>
+
+        <div id="todosGrid">
+            <div id="todosCol">
+                <h2>à faire</h2>
+                <div v-for="todo in todos" class="task">
+                    <p>{{todo}}</p>
+                    <div class="actionButtons">
+                        <!-- <button><i class="fa-solid fa-pen"></i></button> -->
+                        <button @click="todosToDones(todo)" ><i class="fa-solid fa-check"></i></button>
+                        <button @click="deleteTodos(todo)" ><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div id="donesCol">
+                <h2>fait</h2>
+                <div v-for="done in dones" class="task">
+                    <p>{{done}}</p>
+                    <div class="actionButtons">
+                        <button @click="donesToTodos(done)"><i class="fa-solid fa-clock-rotate-left"></i></button>
+                        <button @click="deleteDones(done)"><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    counter:0,
+                    taskToAdd:'',
+                    todos: [],
+                    dones:[],
+                    canceleds:[]
+                }
+            },
+            methods: {
+                addTaskinTodos(){
+                    this.counter += 1;
+                    this.todos.push(this.taskToAdd);
+                    this.taskToAdd = ""
+                },
+                todosToDones(task){
+                    this.counter -= 1;
+                    idTask = this.todos.indexOf(task);
+                    this.todos.splice(idTask,1);
+                    this.dones.push(task)
+                },
+                deleteTodos(task){
+                    this.counter -= 1;
+                    idTask = this.todos.indexOf(task);
+                    this.todos.splice(idTask,1);
+                },
+                donesToTodos(task){
+                    this.counter += 1;
+                    idTask = this.dones.indexOf(task);
+                    this.dones.splice(idTask,1);
+                    this.todos.push(task)
+                },
+                deleteDones(task){
+                    idTask = this.dones.indexOf(task);
+                    this.dones.splice(idTask,1);
+                },
+                
+
+            }
+        }).mount('#app')
+    </script>
+
+</body>
+
+</html>

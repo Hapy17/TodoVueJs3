@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&display=swap');
+
+$dark-color:#12263a;
+$light-color:#e8e9f3;
+$accent-color:#ff9000;
+
+body{
+    background-color:$dark-color;
+    font-family: 'Roboto Condensed', sans-serif;
+    color:$light-color;
+    
+    h1{
+        margin: 1rem;
+        font-size:3rem;
+        text-align: center;
+
+        i{
+            color: $accent-color;
+        }
+    }
+    
+    h2{
+        font-size: 2rem;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    p{
+        font-size: 1.2rem;
+
+        &.tasksCounter{
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+    }
+    
+}
+
+div#app{
+    width: 1024px;
+    margin: auto;
+
+    > div{
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width : 768px){
+    div#app{
+        
+        width:100%;
+
+        > div{
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+// div#todosCol{
+//     background-color: red;
+// }
+// div#donesCol{
+//     background-color: orange;
+// }
+// div#canceledCol{
+//     background-color: yellow;
+// }
